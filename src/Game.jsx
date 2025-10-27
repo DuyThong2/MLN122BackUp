@@ -14,15 +14,13 @@ import {
   MAX_LIVES,
 } from "./lib/constants";
 import { useFitCellSize } from "./hooks/useFitCellSize";
+// Câu hỏi
+import { QUESTIONS } from "./data/QUESTION";
 
 const PRICE_BUMP_FACTOR = 1.2;
 
 // Câu hỏi demo
-const QUESTIONS = [
-  { id: 1, q: "2 + 2 = ?", a: "4" },
-  { id: 2, q: "Thủ đô của Việt Nam?", a: "hà nội" },
-  { id: 3, q: "3 * 5 = ?", a: "15" },
-];
+
 const pickQuestion = () => QUESTIONS[Math.floor(Math.random() * QUESTIONS.length)];
 const delay = (ms) => new Promise((r) => setTimeout(r, ms));
 

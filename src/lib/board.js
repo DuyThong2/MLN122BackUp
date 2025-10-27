@@ -1,5 +1,6 @@
 import { TILE_TYPES } from "./constants";
 import { pickColorGroup } from "./colors";
+import { VIETNAM_PROVINCES } from "../data/VIETNAM_PROVINCES";
 
 /** Board 10 hàng × 12 cột; chỉ dùng ô VIỀN; ô giữa để trống */
 export function createBoardRect(rows = 10, cols = 12) {
@@ -30,8 +31,11 @@ export function createBoardRect(rows = 10, cols = 12) {
     const type = special[i] || TILE_TYPES.PROPERTY;
     const tile = {
       id: i,
-      name: type === TILE_TYPES.START ? "START" :
-            type === TILE_TYPES.FREE_PARKING ? "FREE" : `Property ${i}`,
+      name: type === TILE_TYPES.START
+        ? "START"
+        : type === TILE_TYPES.FREE_PARKING
+          ? "FREE"
+          : VIETNAM_PROVINCES[i % VIETNAM_PROVINCES.length],
       type,
       row: r,
       col: c,
